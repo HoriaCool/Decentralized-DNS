@@ -1,0 +1,21 @@
+{
+  "name": "decentralized-dns.contracts",
+  "version": "1.0.0",
+  "repository": "https://github.com/HoriaCool/Decentralized-DNS",
+  "author": "Horia Nedelcu nedelcu.horia.alexandru@gmail.com",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "@nomiclabs/hardhat-truffle5": "^2.0.6",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "bignumber.js": "^9.0.2",
+    "ethers": "^5.6.8",
+    "hardhat": "^2.9.7",
+    "truffle-assertions": "^0.9.2"
+  },
+  "scripts": {
+    "build":  "yarn run hardhat compile",
+    "test":   "yarn run hardhat test",
+    "deploy": "yarn build && yarn test && yarn run hardhat run scripts/deploy.js || echo 'Deploy failed'"
+  }
+}
