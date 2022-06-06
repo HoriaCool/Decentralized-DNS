@@ -13,7 +13,7 @@ module.exports = {
 			network_id: "*",
 		},
 		development: {
-			url: "http://172.23.80.1:7545",
+			url: "http://172.30.160.1:7545",
 			network_id: "5777",
 		}
 	}
