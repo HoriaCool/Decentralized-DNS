@@ -1,0 +1,77 @@
+@import "animate.css";
+
+form label
+{
+	font-size: x-large;
+}
+
+select.form-control
+{
+	min-height: 49px;
+	font-size: x-large;
+
+	color: white;
+	background-color: rgba(48, 42, 224, 0.25);
+	border: none;
+}
+
+select[class="form-control"]
+{
+	height: auto;
+	font-size: x-large;
+
+	color: white;
+	background-color: rgba(48, 42, 224, 0.25);
+	border: none;
+}
+
+select[class="form-control"]:focus,
+select[class="form-control"]:hover
+{
+	color: white;
+	background-color: rgba(48, 42, 224, 0.42);
+	border: none;
+}
+
+select[class="form-control"] option
+{
+	font-size: x-large;
+
+	color: white;
+	background-color: rgba(48, 42, 224, 0.8);
+	border: none;
+}
+
+input[type="text"]
+{
+	font-size: x-large;
+	color: aliceblue;
+	background-color: rgba(48, 42, 224, 0.25);
+	border: none;
+}
+
+input[type="text"]:focus,
+input[type="text"]:hover
+{
+	font-size: x-large;
+	color: aliceblue;
+	background-color: rgba(48, 42, 224, 0.42);
+	border: none;
+}
+
+button[type="submit"]
+{
+	font-size: x-large;
+	background-color: rgba(48, 42, 224, 0.25);
+	border: none;
+}
+
+button[type="submit"]:hover
+{
+	background-color: rgba(48, 42, 224, 0.42);
+	border: none;
+}
+
+.swal2-popup {
+	font-size: 1.2rem !important;
+}
