@@ -20,8 +20,8 @@ async function main() {
 	);
 
 	const domain  = 'domain'; // alias for 'en.wikipedia-on-ipfs.org'
-	const tld     = '.com';
-	const ip      = '209.94.78.1';
+	const tld     = '.io';
+	const ip      = '127.0.0.1';
 	const cid     = '/ipfs/bafybeiaysi4s6lnjev27ln5icwm6tueaw2vdykrtjkwiphwekaywqhcjze';
 	const price   = await contract.getPrice(domain);
 	const [owner] = await ethers.getSigners();

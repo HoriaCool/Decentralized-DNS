@@ -1,0 +1,48 @@
+[package]
+name = "doh-proxy"
+version = "0.9.3"
+authors = ["Frank Denis <github@pureftpd.org>"]
+description = "A DNS-over-HTTPS (DoH) and ODoH (Oblivious DoH) proxy"
+keywords = ["dns", "ddns", "https", "doh", "odoh", "proxy"]
+license = "MIT"
+homepage = "https://github.com/jedisct1/rust-doh"
+repository = "https://github.com/jedisct1/rust-doh"
+categories = ["asynchronous", "network-programming", "command-line-utilities"]
+edition = "2018"
+readme = "README.md"
+
+[features]
+default = ["tls"]
+tls = ["libdoh/tls"]
+
+[dependencies]
+libdoh = { path = "src/libdoh", version = "0.9.3", default-features = false }
+clap = { version = "3.1.5", features = ["std", "cargo", "wrap_help"] }
+dnsstamps = "0.1.9"
+jemallocator = "0.3.2"
+
+[package.metadata.deb]
+extended-description = """\
+A fast and secure DoH (DNS-over-HTTPS) and ODoH server written in Rust."""
+assets = [
+  [
+    "target/release/doh-proxy",
+    "usr/bin/",
+    "755",
+  ],
+  [
+    "README.md",
+    "usr/share/doc/doh-proxy/README.md",
+    "644",
+  ],
+]
+section = "network"
+depends = "$auto"
+priority = "optional"
+
+[profile.release]
+codegen-units = 1
+incremental = false
+lto = "fat"
+opt-level = 3
+panic = "abort"
