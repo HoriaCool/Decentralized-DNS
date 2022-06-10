@@ -23,6 +23,7 @@
     "build": "yarn run hardhat compile",
     "test": "yarn run hardhat test",
     "deploy": "yarn run hardhat run scripts/deploy.js",
-    "echo": "echo \"$@\" && echo PLM"
+    "update": "yarn run hardhat run scripts/update.configs.js",
+    "withdraw": "yarn run hardhat run scripts/withdraw.js"
   }
 }
