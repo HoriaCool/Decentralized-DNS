@@ -110,8 +110,8 @@ impl DDNS {
 
         let qname = question.qname();
         let qtype: ExtendedRtype;
-	    
-        if qname.first().to_string() == "_dnslink" {
+
+        if question.qtype() == Rtype::Txt && qname.first().to_string() == "_dnslink" {
             qtype = ExtendedRtype::DNSLink;
         } else {
             qtype = ExtendedRtype::Base(question.qtype());
@@ -150,19 +150,28 @@ impl DDNS {
 
         match question.qtype {
         ExtendedRtype::Base(Rtype::A) => {
-            let record_data = self.query_a(question).await.unwrap();
+            let record_data = match self.query_a(question).await {
+                Ok(data) => data,
+                Err(err) => return Err(err)
+            };
 
             msg.push((name, TTL_DDNS, record_data)).unwrap();
         },
 
         ExtendedRtype::Base(Rtype::Txt) => {
-            let record_data = self.query_txt(question).await.unwrap();
+            let record_data = match self.query_txt(question).await {
+                Ok(data) => data,
+                Err(err) => return Err(err)
+            };
 
             msg.push((name, TTL_DDNS, record_data)).unwrap();
         },
 
         ExtendedRtype::DNSLink => {
-            let record_data = self.query_dnslink(question).await.unwrap();
+            let record_data = match self.query_dnslink(question).await {
+                Ok(data) => data,
+                Err(err) => return Err(err)
+            };
 
             msg.push((name, TTL_DDNS, record_data)).unwrap();
         }

@@ -135,7 +135,15 @@ impl DoH {
         if question.forward {
             response = match self.ddns.request(question).await {
                 Ok(response) => response,
-                Err(_)       => return http_error(StatusCode::BAD_REQUEST)
+                Err(_)       => {
+                    // try with the proxy in case of error from ddns
+                    let response = match self.proxy(query).await {
+                        Ok(response) => response,
+                        Err(e)       => return http_error(StatusCode::from(e))
+                    };
+
+                    response
+                }
             };
         } else {
             response = match self.proxy(query).await {
