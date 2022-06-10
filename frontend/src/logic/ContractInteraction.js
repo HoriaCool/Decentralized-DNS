@@ -56,11 +56,10 @@ async function initInteraction(detectedEthereumProvider) {
 			} catch (addError) {
 				// handle "add" error
 				console.error(addError);
-
-				return;
 			}
 		}
 		// handle other "switch" errors
+		console.error(switchError);
 	}
 
 	const DNS_Service_address  = window.env.DNS_SERVICE_ADDRESS;
