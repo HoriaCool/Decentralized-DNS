@@ -37,6 +37,15 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "react-dotenv": {
+    "whitelist": [
+      "NETWORK_NAME",
+      "NETWORK_CHAIN_ID",
+      "NETWORK_RPC_URL",
+      "DNS_SERVICE_ADDRESS",
+      "DNS_SERVICE_ABI_PATH"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
