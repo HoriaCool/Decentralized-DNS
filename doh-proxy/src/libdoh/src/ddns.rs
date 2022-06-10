@@ -237,6 +237,10 @@ impl DDNS {
             .await
             .unwrap();
 
+        if value == "" {
+            return Err(SimpleError::new("Error no domain DNSLink record received from DDns"));
+        }
+
         let dnslink_record = ["dnslink=", value.as_str()].join("");
 
         Ok(Txt::<Vec<u8>>::from_slice(dnslink_record.as_bytes()).unwrap())
