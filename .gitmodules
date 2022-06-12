@@ -1,3 +1,4 @@
 [submodule "mkcert"]
 	path = mkcert
 	url = https://github.com/FiloSottile/mkcert.git
+	ignore = untracked
