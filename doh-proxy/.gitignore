@@ -4,4 +4,4 @@
 Cargo.lock
 /target/
 /src/libdoh/target/
-
+/cert/*.pem
