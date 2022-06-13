@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-truffle5");
 require("@nomiclabs/hardhat-ethers");
+require("dotenv").config();
 
 
 /**
@@ -11,14 +12,16 @@ module.exports = {
 		hardhat: { // https://hardhat.org/metamask-issue#metamask-chainid-issue
 			chainId: 1337
 		},
-		localnode: {
-			url: "http://127.0.0.1:8545/",
+		development: {
+			chainId: 1337,
 			network_id: "*",
-			chainId: 1337
+			url: "http://127.0.0.1:8545/"
 		},
-		ganache: {
-			url: "http://172.26.32.1:7545/",
-			network_id: "5777",
+		ropsten: {
+			chainId: 3,
+			network_id: "3",
+			url: process.env.ROPSTEN_URL,
+			accounts: [process.env.ROPSTEN_KEY]
 		}
 	}
 };

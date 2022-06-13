@@ -1,5 +1,6 @@
 # node
 node_modules
+.env
 
 # contracts
 artifacts
