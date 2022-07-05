@@ -47,7 +47,7 @@ function Edit() {
 								<div className="form-group">
 									<label htmlFor="exampleFormControlSelect1">Select top level</label>
 									<select className="form-control" name="domainTopLevel" required>
-										<option value=".com">.crypto</option>
+										<option value=".com">.com</option>
 										<option value=".crypto">.crypto</option>
 										<option value=".io">.io</option>
 										<option value=".cool">.cool</option>
