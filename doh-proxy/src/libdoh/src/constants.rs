@@ -8,5 +8,5 @@ pub const CERTS_WATCH_DELAY_SECS: u32 = 10;
 pub const ODOH_KEY_ROTATION_SECS: u32 = 86400;
 pub const UDP_TCP_RATIO: usize = 8;
 pub const TTL_DDNS: u32 = 86400;
-pub const TLD_FOR_DDNS: &'static [&'static str] = &["crypto", "io", "cool", "custom", "log"];
+pub const TLD_FOR_DDNS: &'static [&'static str] = &["com", "crypto", "io", "cool", "custom", "log"];
 pub const ARTIFACTS_PATH_DDNS: &'static str = "artifacts";
