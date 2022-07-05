@@ -30,7 +30,7 @@ async function initInteraction(detectedEthereumProvider) {
 	// what MetaMask injects as window.ethereum into each page
 	// provider = await detectEthereumProvider();
 	// provider = new ethers.providers.Web3Provider(window.ethereum);
-	const provider = new ethers.providers.Web3Provider(detectedEthereumProvider);
+	const provider = new ethers.providers.Web3Provider(detectedEthereumProvider, "any");
 
 	// MetaMask requires requesting permission to connect users accounts
 	await provider.send('eth_requestAccounts', []);

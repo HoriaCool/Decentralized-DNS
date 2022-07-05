@@ -100,6 +100,26 @@ impl DDNS {
         return contract;
     }
 
+    pub fn println_response(&self, response: &DnsResponse) {
+        let msg = Message::from_octets(response.packet.clone()).unwrap();
+
+        println!("\nQuery Section:");
+        let questions = msg.question();
+        for record in questions {
+            if let Ok(record) = record {
+                println!("\t{}", record);
+            }
+        }
+
+        println!("Answers Section:");
+        let answers = msg.answer().unwrap().limit_to::<AllRecordData<_, _>>();
+        for record in answers {
+            if let Ok(record) = record {
+                println!("\t{}", record);
+            }
+        }
+    }
+
     pub fn forward_query(&self, query: &Vec<u8>) -> Result<DnsQuestion, SimpleError> {
         let msg = Message::from_octets(query.clone()).unwrap();
 
@@ -221,7 +241,7 @@ impl DDNS {
     }
 
     async fn query_txt(&self, _question: DnsQuestion) -> Result<Txt::<Vec<u8>>, SimpleError> {
-        Ok(Txt::<Vec<u8>>::from_slice(b"Simple TXT record").unwrap())
+        Ok(Txt::<Vec<u8>>::from_slice(b"Simple-TXT-record").unwrap())
     }
 
     async fn query_dnslink(&self, question: DnsQuestion) -> Result<Txt::<Vec<u8>>, SimpleError> {

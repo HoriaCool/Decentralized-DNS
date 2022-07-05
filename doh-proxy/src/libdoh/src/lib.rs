@@ -152,6 +152,9 @@ impl DoH {
             };
         }
 
+        #[cfg(debug_assertions)] // detects if release or debug mode
+        self.ddns.println_response(&response);
+
         let http_resp = self.build_response(response.packet, response.ttl,
             DoHType::Standard.as_str(), true);
 
